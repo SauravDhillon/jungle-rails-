@@ -4,6 +4,12 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if @cart_empty %>
+  <div class="alert alert-warning text-center" role="alert">
+  <p>Your cart is currently empty. 😔</p>
+  <p><%= link_to 'Continue Shopping', root_path, class: 'btn btn-primary' %></p>
+  </div>
+  <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +54,5 @@
       <% end %>
     </div>
   </div>
-
+<% end %>
 </section>
