@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+ #/about route is mapped to about controller index action
+  get '/about', to: 'about#index', as: 'about'
 
   root to: 'products#index'
 
