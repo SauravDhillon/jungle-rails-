@@ -111,3 +111,19 @@ form.button_to {
 .text-danger {
   color: #f38792 !important;
 }
+
+// Adding styles for admin dashboard
+.admin-dashboard {
+  text-align: center;
+  background-color: pink;
+  color: black;
+  .lead {
+    font-size: 1.0em;
+    margin-bottom: 1em;
+    
+  }
+  .btn-primary {
+    padding: 0.75em 1.5em;
+    font-size: 1.0em;
+  }
+}

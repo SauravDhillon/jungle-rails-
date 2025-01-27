@@ -1,2 +1,6 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<div class="admin-dashboard">
+<h2 class="my-4">Hope you are having an amazing day! Admin😊</h2>
+<p class="lead">Count for products available in the store currently is: <%= @product_count %></p>
+<p class="lead">Count for category of products is: <%= @category_count %></p>
+<p><%= link_to 'Products List', admin_products_path, class: 'btn btn-primary mt-3' %></p>
+</div>
