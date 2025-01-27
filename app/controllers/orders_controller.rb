@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
 
+  #Once the @order is loaded, you can access the line_items and their associated products:
+  #@order.line_items: This returns all line_items associated with the order 
+  #line_item.product:For each line_item, Rails fetches the associated product 
+  #Since we used includes, the product is already preloaded and does not trigger additional queries.
   def show
-    @order = Order.find(params[:id])
+    @order = Order.includes(line_items: :product).find(params[:id])
+    @line_items = @order.line_items
   end
 
   def create
