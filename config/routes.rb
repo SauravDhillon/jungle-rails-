@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'users/new'
+  get 'users/create'
   namespace :admin do
     get 'categories/index'
     get 'categories/new'
@@ -23,7 +28,18 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
+    resources :sales, only: [:index]
   end
+
+  #routes for showing users a login form, logging them in, and logging them out
+  get '/login', to: 'sessions#new'   # this is for showing login form 
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: :logout
+  
+  get '/signup', to: 'users#new' #this is for showing signup form 
+  get '/profile', to: 'users#show'
+  post '/users', to: 'users#create'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
