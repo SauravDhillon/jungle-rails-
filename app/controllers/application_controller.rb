@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id] #here we check for user in User table using its user id 
   end
-  helper_method :current_user
+  helper_method :current_user #using this makes method available in views
 
   # Method to check if a user is logged in
   def logged_in?
